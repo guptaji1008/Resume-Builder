@@ -1,0 +1,16 @@
+
+.mainImgBox {
+    display: flex;
+    margin: 10vw 5vw;
+    justify-content: space-around;
+}
+
+.imgBox {
+    height: 28vw;
+    cursor: pointer;
+}
+
+.imgBox:hover {
+    height: 29vw;
+    transition: height 0.3s ease-in-out;
+}

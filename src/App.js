@@ -15,6 +15,8 @@ import FourthPage from './components/ResumeTemplates/FourthPage';
 import FirstTemp from './Templates/FirstTemp.js'
 import SecondTemp from './Templates/SecondTemp.js'
 import ThirdTemp from './Templates/ThirdTemp';
+import FourthTemp from './Templates/FourthTemp';
+import Thirdpage from './components/NavbarContent/Thirdpage';
 
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Firstpage/>}></Route>
         <Route path='/resumetemplates' element={<Firstpage/>}></Route>
-        {/* <Route path='/resumetemplates/resumetemplate' element={<FirstPage/>}></Route> */}
+        <Route path='/aboutme' element={<Thirdpage/>}></Route>
         <Route path='/resumetemplates/resumetemplate/personalinfo' element={<FirstPage/>}></Route>
         <Route path='/resumetemplates/resumetemplate/workexperience' element={<SecondPage/>}></Route>
         <Route path='/resumetemplates/resumetemplate/education' element={<ThirdPage/>}></Route>
@@ -33,6 +35,7 @@ function App() {
         <Route path='/resumetemplates/resumetemplate/keyskill/preview01' element={<FirstTemp/>}></Route>
         <Route path='/resumetemplates/resumetemplate/keyskill/preview02' element={<SecondTemp/>}></Route>
         <Route path='/resumetemplates/resumetemplate/keyskill/preview03' element={<ThirdTemp/>}></Route>
+        <Route path='/resumetemplates/resumetemplate/keyskill/preview04' element={<FourthTemp/>}></Route>
       </Routes>
     </Router>
     </>

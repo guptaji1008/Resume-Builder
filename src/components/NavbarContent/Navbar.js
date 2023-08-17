@@ -9,9 +9,9 @@ export default function Navbar() {
     <div>
       <AppBar sx={{backgroundColor: "white"}}>
         <Toolbar sx={{marginLeft: "auto", marginRight: "5vw"}}>
+            <Link className='logo' to="/resumetemplates">MY RESUMER'Z</Link>
             <Link to="/resumetemplates">RESUME TEMPLATES</Link>
-            <Link to="/myresume">MY RESUME</Link>
-            <Link to="/">ABOUT US</Link>
+            <Link to="/aboutme">ABOUT US</Link>
         </Toolbar>
       </AppBar>
     </div>

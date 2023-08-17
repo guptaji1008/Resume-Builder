@@ -22,6 +22,8 @@ export default function FourthPage() {
 
   const template = useSelector((state) => state.templateDecider)
 
+  const jobExpList = useSelector((state) => state.resumeJobExpList)
+
   const buttons = [
     <Button
       sx={{ width: "23vw", height: "5vw" }}
@@ -68,7 +70,7 @@ export default function FourthPage() {
   };
 
   const previewButton = () => {
-    if (skillListState.length >= 1) {
+    if (skillListState.length >= 1 && jobExpList.length >= 1) {
       if (template === "first") {
         navigate('/resumetemplates/resumetemplate/keyskill/preview01')
       }
@@ -77,6 +79,9 @@ export default function FourthPage() {
       }
       else if (template === "third") {
         navigate('/resumetemplates/resumetemplate/keyskill/preview03')
+      }
+      else if (template === "fourth") {
+        navigate('/resumetemplates/resumetemplate/keyskill/preview04')
       }
     }
     else {

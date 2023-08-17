@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./SecondTemp.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillTelephoneInboundFill } from "react-icons/bs";
@@ -8,10 +8,11 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SecondTemp() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const introduction = useSelector((state) => state.resumeFirstPageInfoGiver);
 
@@ -21,24 +22,25 @@ export default function SecondTemp() {
 
   const jobExp = useSelector((state) => state.resumeJobExpList);
 
-  const image = useSelector((state) => state.profilePictureUpdate)
+  const image = useSelector((state) => state.profilePictureUpdate);
 
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState("");
 
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
 
   const handleSaveButton = async () => {
-    const resume2 = document.querySelector(".resume-2")
-    setLoader(true)
-    const canvas = await html2canvas(resume2)
-    const imgData = canvas.toDataURL("img/png")
-    const doc = new jsPDF('p', 'mm', 'a4')
-    const componentWidth = doc.internal.pageSize.getWidth()
-    const componentHeight = doc.internal.pageSize.getHeight()
-    doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight)
-    setLoader(false)
-    doc.save(`${value}.pdf`)
-  }
+    const resume2 = document.querySelector(".resume-2");
+    setLoader(true);
+    const canvas = await html2canvas(resume2);
+    const imgData = canvas.toDataURL("img/png");
+    const doc = new jsPDF("p", "mm", "a4");
+    const componentWidth = doc.internal.pageSize.getWidth();
+    const componentHeight = doc.internal.pageSize.getHeight();
+    doc.addImage(imgData, "PNG", 0, 0, componentWidth, componentHeight);
+    setLoader(false);
+    doc.save(`${value}.pdf`);
+    toast.success("Saved Successfully")
+  };
 
   return (
     <>
@@ -47,7 +49,7 @@ export default function SecondTemp() {
           style={{
             backgroundColor: "#8C4B55",
             height: "20vw",
-            paddingTop: "3vw"
+            paddingTop: "3vw",
           }}
         >
           <div
@@ -82,7 +84,11 @@ export default function SecondTemp() {
               borderRadius: "12vw",
             }}
           >
-            <img src={image} style={{width: "100%", height: "100%", borderRadius: "12vw"}} alt="" />
+            <img
+              src={image}
+              style={{ width: "100%", height: "100%", borderRadius: "12vw" }}
+              alt=""
+            />
           </div>
         </div>
         <div
@@ -93,7 +99,7 @@ export default function SecondTemp() {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ width: "35%", marginBottom: "2vw"}}>
+          <div style={{ width: "35%", marginBottom: "2vw" }}>
             <div style={{ marginTop: "13vw" }}>
               <u
                 className="fontBold"
@@ -176,17 +182,20 @@ export default function SecondTemp() {
               >
                 Qualifications
               </u>
-              
-                <div style={{ marginBottom: "2vw",
+
+              <div
+                style={{
+                  marginBottom: "2vw",
                   marginTop: "1.5vw",
-                  fontSize: "1.3vw", }}>
-                  <div>
-                    {education.qualification} | {education.collegeStartYear}-
-                    {education.collegeEndYear}
-                  </div>
-                  <div>{education.university}</div>
+                  fontSize: "1.3vw",
+                }}
+              >
+                <div>
+                  {education.qualification} | {education.collegeStartYear}-
+                  {education.collegeEndYear}
                 </div>
-              
+                <div>{education.university}</div>
+              </div>
             </div>
           </div>
           <div style={{ width: "55%", marginBottom: "3vw" }}>
@@ -231,15 +240,17 @@ export default function SecondTemp() {
                   }}
                 >
                   {jobExp.map((elem) => {
-                    return <li style={{ marginBottom: "3vw" }}>
-                      <div style={{ fontWeight: "bold" }}>
-                        {elem.companyName} | {elem.jobPosition}
-                      </div>
-                      <div>
-                        {elem.startingYear}-{elem.endingYear}
-                      </div>
-                      <div>{elem.jobDescription}</div>
-                    </li>;
+                    return (
+                      <li style={{ marginBottom: "3vw" }}>
+                        <div style={{ fontWeight: "bold" }}>
+                          {elem.companyName} | {elem.jobPosition}
+                        </div>
+                        <div>
+                          {elem.startingYear}-{elem.endingYear}
+                        </div>
+                        <div>{elem.jobDescription}</div>
+                      </li>
+                    );
                   })}
                 </ul>
               </div>
@@ -256,18 +267,35 @@ export default function SecondTemp() {
           onChange={(e) => setValue(e.target.value)}
         />
         <div style={{ paddingLeft: "8vw", paddingTop: "1.5vw" }}>
-          <Button onClick={()=>navigate(-1)} style={{ marginRight: "2vw" }} variant="outlined">
+          <Button
+            onClick={() => navigate(-1)}
+            style={{ marginRight: "2vw" }}
+            variant="outlined"
+          >
             Back
           </Button>
-          <Button style={{ marginLeft: "2vw" }} variant="contained"
-          disabled={loader}
-          onClick={handleSaveButton}
+          <Button
+            style={{ marginLeft: "2vw" }}
+            variant="contained"
+            disabled={loader}
+            onClick={handleSaveButton}
           >
-            {loader?"Saving":"Save"}
+            {loader ? "Saving" : "Save"}
           </Button>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
-

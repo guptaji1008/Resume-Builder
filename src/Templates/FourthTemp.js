@@ -42,11 +42,11 @@ export default function FourthTemp() {
       <div className="first-box1">
         <div>
           <div style={{ fontSize: "4.5vw", marginBottom: "1vw" }}>
-            <span style={{ fontWeight: "bold" }}>{intro.firstName}</span>{" "}
+            <span style={{ fontWeight: "bold" }}>{intro.firstName}</span>
             {intro.lastName}
           </div>
           <div style={{ fontSize: "2.5vw", marginBottom: "1.5vw" }}>
-            Web Developer
+            {intro.jobTitle}
           </div>
           <div style={{ fontSize: "1.4vw", marginBottom: "5vw" }}>
             {intro.aboutMe}

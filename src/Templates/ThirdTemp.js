@@ -60,7 +60,7 @@ export default function ThirdTemp() {
             <span>{intro.lastName}</span>
             <hr style={{ border: "2.5px solid #545454" }} />
             <div style={{ fontSize: "2.5vw", marginTop: "1.3vw" }}>
-              Web Developer
+              {intro.jobTitle}
             </div>
           </div>
 

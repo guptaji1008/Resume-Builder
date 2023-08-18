@@ -47,6 +47,12 @@ export const postalCodeAdviser = (givenPostalCode) => {
         change: givenPostalCode
     }
 } 
+export const jobTitleAdviser = (givenJobTitle) => {
+    return {
+        type: "JOB_TITLE",
+        change: givenJobTitle
+    }
+} 
 export const aboutMeAdviser = (givenAboutMe) => {
     return {
         type: "ABOUT_ME",

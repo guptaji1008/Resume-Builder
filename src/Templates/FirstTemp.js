@@ -117,7 +117,7 @@ export default function FirstTemp() {
               </span>{" "}
               <span style={{ color: "#3f495a" }}>{introduction.lastName}</span>
             </p>
-            <p style={{ fontSize: "2vw" }}>Certified Web Developer</p>
+            <p style={{ fontSize: "2vw" }}>{introduction.jobTitle}</p>
             <p
               style={{
                 textAlign: "justify",

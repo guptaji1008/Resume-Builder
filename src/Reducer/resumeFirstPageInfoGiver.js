@@ -8,6 +8,7 @@ const initialState = {
     city: "",
     stateName: "",
     postalCode: null,
+    jobTitle: "",
     aboutMe: ""
 }
 
@@ -21,6 +22,7 @@ const resumeFirstPageInfoGiver = (state=initialState, action) => {
         case "CITY": return {...state, city: action.change}
         case "STATE": return {...state, stateName: action.change}
         case "POSTAL_CODE": return {...state, postalCode: action.change}
+        case "JOB_TITLE": return {...state, jobTitle: action.change}
         case "ABOUT_ME": return {...state, aboutMe: action.change}
         default: return state
     }

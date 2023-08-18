@@ -17,6 +17,7 @@ import {
   cityAdviser,
   stateAdviser,
   postalCodeAdviser,
+  jobTitleAdviser,
   aboutMeAdviser,
 } from "../../action/index";
 import { useRef } from "react";
@@ -91,6 +92,7 @@ export default function FirstPage() {
     dispatch(stateAdviser(""));
     dispatch(postalCodeAdviser(""));
     dispatch(postalCodeAdviser(null));
+    dispatch(jobTitleAdviser(""));
     dispatch(aboutMeAdviser(""));
     navigate("/resumetemplates");
   };
@@ -242,6 +244,19 @@ export default function FirstPage() {
             <TextField
               label="Postal Code"
               value={value.postalCode}
+              onChange={(e) => dispatch(postalCodeAdviser(e.target.value))}
+              type="text"
+              required
+              style={{
+                marginLeft: "4vw",
+                marginRight: "4vw",
+                width: "23vw",
+                marginBottom: "3vw",
+              }}
+            />
+            <TextField
+              label= "Job Title"
+              value={value.jobTitle}
               onChange={(e) => dispatch(postalCodeAdviser(e.target.value))}
               type="text"
               required

@@ -71,7 +71,7 @@ export default function SecondTemp() {
               width: "40vw",
             }}
           >
-            Web Developer Enthusiant
+            {introduction.jobTitle}
           </div>
           <div
             style={{
